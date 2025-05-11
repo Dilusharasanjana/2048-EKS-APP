@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: 2048-ingress
-  namespace: app-2048
+  namespace: 2048-application
   annotations:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:<region>:<account id>:certificate/90fd4cd6-b0a2-4f1a-8ccc
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
