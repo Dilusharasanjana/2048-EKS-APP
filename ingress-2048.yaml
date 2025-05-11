@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-2048
+  name: 2048-ingress
   namespace: app-2048
   annotations:
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:861860375272:certificate/90fd4cd6-b0a2-4f1a-8ccc-dac3d2be658f
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:<region>:<account id>:certificate/90fd4cd6-b0a2-4f1a-8ccc
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -13,13 +13,13 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: 2048.topawscloud.com
+    - host: <your host name>
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: service-2048
+                name: 2048-service
                 port:
                   number: 80
