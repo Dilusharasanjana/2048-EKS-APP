@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: app-2048
-  name: deployment-2048
+  namespace: 2048-application
+  name: 2048-deployment
 spec:
   selector:
     matchLabels:
